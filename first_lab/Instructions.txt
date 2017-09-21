@@ -1,0 +1,50 @@
+Put each exercise in a separate package.
+
+1. Create an “echo” program. This should write out each command-line argument it receives. (5 min)
+
+2. Create a “cat” program. This should receive a filename as a command line argument and write out the contents of the file. (10 min)
+
+Check if the given file is missing, in that case don’t write out anything.
+
+3. Create a program that reads a property file. (15 min)
+
+Put the code that reads the file into a separate method.
+Each line of the property file should be in the format of key : textual value.
+Remove whitespace from both before the key, before and after the colon, and after the textual value.
+Return a Map that associates the keys with the values.
+In the main method write out the elements of the map.
+
+4. Extend the previous program (10 min)
+
+Define a new exception type WrongPropertySyntaxException that subclasses IllegalArgumentException
+When the property file is not in the expected format, raise a WrongPropertySyntaxException with a message that describes the problem.
+Catch this exception in the main method and present the message to the user.
+
+5. Create a class hierarchy to represent university students and faculty members (15 min)
+
+Create a Person class that has a name and an ID. Make the Person class abstract. Create an abstract balance method that returns a BigInteger.
+Create a Course class that has a name and an ID.
+Create a Student class that subclasses Person. Each student has a Set of courses that she attends. The student will have to pay 20 euros for each course she attends (negative balance).
+Create a FacultyMember class that subclasses Person. Each faculty member has a Set of courses that she delivers to the students. The faculty member will earn 30 euros for each course she delivers (positive balance).
+Create constructors for each class. Make all fields private. Override the equals method for both Person and Course. They are considered to be equal if their ids are the same. Don’t forget to override hashCode as well.
+
+6. Extend the previous program (10 min)
+
+Create a Checkable interface. It contains a method that evaluates the given object and returns a boolean value to report if it is valid or not.
+A faculty member should at least deliver 4 courses, at most 8 courses.
+A student cannot take two courses that have the same name.
+
+7. Extend the previous program (10 min)
+
+Create a University class.
+The University contains all courses and people.
+Create a calculateBalance method that calculates the sum of the balances of all people in the university.
+Let the University be Checkable. The university is correct if all people are correct.
+8. Create a MultiMap class. A multimap is like a map, but it can have multiple values for the same key. (15 min)
+
+MultiMap should have two generic parameters for key and value types.
+Implement put method that adds a given key and value pair to the map if it is not present yet.
+Implement a remove method that removes a given key value pair from the map.
+Implement a contains function that returns true, if the map contains a given key value pair.
+Implement removeAll that removes all values that are associated with a key.
+Hint: The simplest solution for the multimap is to have a map of lists and add/remove values from the list associated with a given key.
