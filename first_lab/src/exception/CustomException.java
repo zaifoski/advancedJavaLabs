@@ -95,7 +95,9 @@ public class CustomException{
 		        it.remove();
 		    }
 		} catch(WrongPropertySyntaxException e){
-			System.out.println("e"+e) ;
+			System.out.println(e.getMessage()) ;
+		} catch(Exception e){
+			System.out.println(e.getMessage()) ;
 		}
 
 	}
