@@ -59,7 +59,6 @@ public class Analizer {
 	}
 	
 	public static void main(String args[]){
-		Class<String> stringCls = String.class;
 		
 		String test = new String();
 		analizeClass(test);
