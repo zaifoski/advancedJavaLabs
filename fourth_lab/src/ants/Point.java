@@ -2,6 +2,7 @@ package ants;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 public class Point {
@@ -63,7 +64,7 @@ public class Point {
 		}
 	}
 	
-	public Collection<Point> neighbours() {
+	public List<Point> neighbours() {
 		return Arrays.asList(new Point(x.add(BigInteger.ONE), y), new Point(x.subtract(BigInteger.ONE), y),
 				new Point(x.add(BigInteger.ONE), y.add(BigInteger.ONE)),
 				new Point(x.add(BigInteger.ONE), y.subtract(BigInteger.ONE)),
