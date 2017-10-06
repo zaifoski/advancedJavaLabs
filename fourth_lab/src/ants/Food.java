@@ -12,7 +12,7 @@ public class Food {
 		return amount;
 	}
 
-	public synchronized Boolean removeFood(){
+	public synchronized boolean removeFood(){
 		if(this.amount > 0) {
 			amount -= 1;
 			return true;
