@@ -6,14 +6,17 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Environment {
 
-	private int height;
-	private int width;
+	private final int height;
+	private final int width;
 	private Map<Point,Food> foodLocations;
+	private Random rand;
 	
 	public Environment(int height, int width){
 		this.height=height;
 		this.width=width;
 		foodLocations = new ConcurrentHashMap<Point,Food>();
+		
+		rand = new Random();
 			
 	}
 	
@@ -22,24 +25,36 @@ public class Environment {
 	//The update method will generate a new food and place it on the map. 
 	//The location of the food should be random
 	public void update(){
-		Food newFood = new Food(1);
-		Random xRand = new Random(); int x = xRand.nextInt();//fix
-		Random yRand = new Random(); int y = yRand.nextInt();//fix
-		Point newPoint = new Point(x,y);
+		Food newFood = new Food(5);
+		Point newPoint = new Point(rand.nextInt(width),rand.nextInt(height));
 		foodLocations.put(newPoint, newFood);
 	}
 	
-	public Boolean hasFood(Point point){ 
-		if(foodLocations.containsKey(point)) return true;
+	public boolean hasFood(Point point){ 
+		if(foodLocations.containsKey(point) && 
+				foodLocations.get(point).getAmount()>0) return true;
 		return false;
 	}
 	
+	public int getHeight() {
+		return height;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
 	public void dropFood(Point point){ 
 		if(foodLocations.containsKey(point)){
 			Food f = foodLocations.get(point);
 			f.addFood(1);
-			foodLocations.put(point,f);
 		}
+	}
+	
+	public String displayPoint(Point point){ 
+		if(foodLocations.containsKey(point)){
+			return "#";
+		} return "_";
 	}
 
 }
